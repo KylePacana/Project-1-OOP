@@ -1,0 +1,39 @@
+public class Rectangle extends GeometryOperation {
+
+    public void setLength(double length) {
+        setValue1(length);
+    }
+
+    public void setWidth(double width) {
+        setValue2(width);
+    }
+
+    public double getLength() {
+        return getValue1();
+    }
+
+    public double getWidth() {
+        return getValue2();
+    }
+
+    public double area() {
+        if (getLength() < 0 || getWidth() < 0) {
+            System.out.println("Error: Length or width cannot be negative.");
+            return 0;
+        }
+        return getLength() * getWidth();
+    }
+
+    public double perimeter() {
+        if (getLength() < 0 || getWidth() < 0) {
+            System.out.println("Error: Length or width cannot be negative.");
+            return 0;
+        }
+        return 2 * (getLength() + getWidth());
+    }
+
+    @Override
+    public double compute() {
+        return area();
+    }
+}
