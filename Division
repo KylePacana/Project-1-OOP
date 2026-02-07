@@ -1,0 +1,11 @@
+public class Division extends ArithmeticOperation {
+
+    @Override
+    public double compute() {
+        if (getValue2() == 0) {
+            System.out.println("Error: Division by zero is not allowed.");
+            return 0;
+        }
+        return getValue1() / getValue2();
+    }
+}
