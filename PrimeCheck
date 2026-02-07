@@ -1,0 +1,24 @@
+public class PrimeCheck extends NumberOperation {
+
+    public void setNumber(int number) {
+        setValue1(number);
+    }
+
+    public int getNumber() {
+        return (int) getValue1();
+    }
+
+    public boolean isPrime() {
+        int n = getNumber();
+        if (n <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+
+    @Override
+    public double compute() {
+        return isPrime() ? 1 : 0;
+    }
+}
