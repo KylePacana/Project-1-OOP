@@ -1,0 +1,28 @@
+public class Factorial extends NumberOperation {
+
+    public void setNumber(int number) {
+        setValue1(number);
+    }
+
+    public int getNumber() {
+        return (int) getValue1();
+    }
+
+    public long getFactorial() {
+        int n = getNumber();
+        if (n < 0) {
+            System.out.println("Error: Factorial of a negative number is not defined.");
+            return 0;
+        }
+        long fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    @Override
+    public double compute() {
+        return getFactorial();
+    }
+}
