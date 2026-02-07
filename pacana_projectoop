@@ -1,0 +1,138 @@
+import java.util.Scanner;
+
+public class pacana_projectoop {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int mainChoice;
+
+        do {
+            System.out.println("\n===== PACANA CORE MATH LIBRARY CALCULATOR =====");
+            System.out.println("1. Arithmetic Operations");
+            System.out.println("2. Geometry Calculations");
+            System.out.println("3. Number Analysis");
+            System.out.println("4. Exit");
+            System.out.print("Choose option: ");
+            mainChoice = sc.nextInt();
+
+            switch (mainChoice) {
+
+                // ================= ARITHMETIC =================
+                case 1:
+                    System.out.println("\n--- Arithmetic Operations ---");
+                    System.out.println("1. Addition");
+                    System.out.println("2. Subtraction");
+                    System.out.println("3. Multiplication");
+                    System.out.println("4. Division");
+                    System.out.print("Choose: ");
+                    int arChoice = sc.nextInt();
+
+                    System.out.print("Enter first number: ");
+                    double a = sc.nextDouble();
+                    System.out.print("Enter second number: ");
+                    double b = sc.nextDouble();
+
+                    ArithmeticOperation arOp = null;
+
+                    switch (arChoice) {
+                        case 1: arOp = new Addition(); break;
+                        case 2: arOp = new Subtraction(); break;
+                        case 3: arOp = new Multiplication(); break;
+                        case 4: arOp = new Division(); break;
+                        default: System.out.println("Invalid arithmetic choice!");
+                    }
+
+                    if (arOp != null) {
+                        arOp.setValue1(a);
+                        arOp.setValue2(b);
+                        System.out.println("Result = " + arOp.compute());
+                    }
+                    break;
+
+                // ================= GEOMETRY =================
+                case 2:
+                    System.out.println("\n--- Geometry ---");
+                    System.out.println("1. Circle Area");
+                    System.out.println("2. Circle Circumference");
+                    System.out.println("3. Rectangle Area");
+                    System.out.println("4. Rectangle Perimeter");
+                    System.out.print("Choose: ");
+                    int geoChoice = sc.nextInt();
+
+                    switch (geoChoice) {
+                        case 1: case 2:
+                            Circle c = new Circle();
+                            System.out.print("Enter radius: ");
+                            c.setRadius(sc.nextDouble());
+                            if (geoChoice == 1)
+                                System.out.println("Circle Area = " + c.area());
+                            else
+                                System.out.println("Circle Circumference = " + c.circumference());
+                            break;
+
+                        case 3: case 4:
+                            Rectangle r = new Rectangle();
+                            System.out.print("Enter length: ");
+                            r.setLength(sc.nextDouble());
+                            System.out.print("Enter width: ");
+                            r.setWidth(sc.nextDouble());
+                            if (geoChoice == 3)
+                                System.out.println("Rectangle Area = " + r.area());
+                            else
+                                System.out.println("Rectangle Perimeter = " + r.perimeter());
+                            break;
+
+                        default:
+                            System.out.println("Invalid geometry choice!");
+                    }
+                    break;
+
+                // ================= NUMBER ANALYSIS =================
+                case 3:
+                    System.out.println("\n--- Number Analysis ---");
+                    System.out.println("1. Prime Check");
+                    System.out.println("2. Factorial");
+                    System.out.println("3. Even or Odd");
+                    System.out.print("Choose: ");
+                    int numChoice = sc.nextInt();
+
+                    System.out.print("Enter number: ");
+                    int num = sc.nextInt();
+
+                    switch (numChoice) {
+                        case 1:
+                            PrimeCheck p = new PrimeCheck();
+                            p.setNumber(num);
+                            System.out.println("Is Prime? " + p.isPrime());
+                            break;
+
+                        case 2:
+                            Factorial f = new Factorial();
+                            f.setNumber(num);
+                            System.out.println("Factorial = " + f.getFactorial());
+                            break;
+
+                        case 3:
+                            EvenOdd eo = new EvenOdd();
+                            eo.setNumber(num);
+                            System.out.println("Even or Odd: " + eo.checkEvenOdd());
+                            break;
+
+                        default:
+                            System.out.println("Invalid number analysis choice!");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Exiting program...");
+                    break;
+
+                default:
+                    System.out.println("Invalid main menu choice!");
+            }
+
+        } while (mainChoice != 4);
+
+        sc.close();
+    }
+}
