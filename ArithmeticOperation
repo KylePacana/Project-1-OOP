@@ -1,0 +1,14 @@
+public abstract class ArithmeticOperation extends MathematicalOperation {
+
+    public ArithmeticOperation() {
+        super();
+    }
+
+    public void displayOperands() {
+        System.out.println("Operand 1: " + getValue1());
+        System.out.println("Operand 2: " + getValue2());
+    }
+
+    @Override
+    public abstract double compute();
+}
