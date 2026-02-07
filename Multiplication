@@ -1,0 +1,7 @@
+public class Multiplication extends ArithmeticOperation {
+
+    @Override
+    public double compute() {
+        return getValue1() * getValue2();
+    }
+}
