@@ -1,0 +1,31 @@
+public class Circle extends GeometryOperation {
+
+    public void setRadius(double radius) {
+        setValue1(radius);
+    }
+
+    public double getRadius() {
+        return getValue1();
+    }
+
+    public double area() {
+        if (getRadius() < 0) {
+            System.out.println("Error: Radius cannot be negative.");
+            return 0;
+        }
+        return Math.PI * getRadius() * getRadius();
+    }
+
+    public double circumference() {
+        if (getRadius() < 0) {
+            System.out.println("Error: Radius cannot be negative.");
+            return 0;
+        }
+        return 2 * Math.PI * getRadius();
+    }
+
+    @Override
+    public double compute() {
+        return area();
+    }
+}
