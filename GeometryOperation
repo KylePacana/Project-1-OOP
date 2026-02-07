@@ -1,0 +1,9 @@
+public abstract class GeometryOperation extends MathematicalOperation {
+
+    public GeometryOperation() {
+        super();
+    }
+
+    @Override
+    public abstract double compute();
+}
