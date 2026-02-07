@@ -1,0 +1,20 @@
+public class EvenOdd extends NumberOperation {
+
+    public void setNumber(int number) {
+        setValue1(number);
+    }
+
+    public int getNumber() {
+        return (int) getValue1();
+    }
+
+    public String checkEvenOdd() {
+        int n = getNumber();
+        return (n % 2 == 0) ? "Even" : "Odd";
+    }
+
+    @Override
+    public double compute() {
+        return 0;
+    }
+}
