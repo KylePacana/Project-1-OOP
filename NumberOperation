@@ -1,0 +1,9 @@
+public abstract class NumberOperation extends MathematicalOperation {
+
+    public NumberOperation() {
+        super();
+    }
+
+    @Override
+    public abstract double compute();
+}
